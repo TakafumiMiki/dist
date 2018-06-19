@@ -14,7 +14,7 @@ while message != "q":#qを押すとストップ
     my_socket.send(message.encode())
     data = my_socket.recv(1024).decode()
                  
-    print (str(data) + " がサーバーから送り返されました．")
+    #print (str(data) + " がサーバーから送り返されました．")
     
     try:
         result += float(data)
@@ -25,6 +25,6 @@ while message != "q":#qを押すとストップ
     
 
 else:
-    print(result) 
+    print("合計は " + str(result)) 
   
 my_socket.close()

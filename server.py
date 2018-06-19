@@ -18,7 +18,7 @@ class ServerProg(socketserver.StreamRequestHandler):
             with open("log.txt", "a") as file:
                 pprint(data.decode(), stream=file)      
                 
-            if len(data) <= 0:
+            if len(data) == 0:
                 now2 = datetime.now()
                 diff = (now2 - now1).total_seconds()                
                 with open("log.txt", "a") as file:
