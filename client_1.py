@@ -11,23 +11,15 @@ except ConnectionRefusedError:
     exit()
 
 message = input(" 数値を入力 -> ")
-result = 0         
+result = 0
 
 while message != "q":#qを押すとストップ
     
     my_socket.send(message.encode())
     data = my_socket.recv(1024).decode()
                  
-    print (str(data) + " がサーバーから送り返されました．")
+    print ("足し算の結果は " + str(data))
     
-    try:
-        result += float(data)
-    except ValueError:
-        pass
-    finally:
-        message = input(" 数値を入力 -> ")
+    message = input(" 数値を入力 -> ")
     
-else:
-    print("合計は " + str(result)) 
-  
 my_socket.close()
